@@ -9,4 +9,7 @@ class Board
     @placed_ships = []
   end
 
+  # def total_ships -- use for getting locations
+  #   @placed_ships.map { |ship| ship.size }
+  # end
 end

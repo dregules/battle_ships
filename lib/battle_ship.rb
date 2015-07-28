@@ -3,6 +3,7 @@ require_relative 'board'
 class BattleShip
 
   attr_accessor :size
+  attr_accessor :location
 
   # SHIPS = { 'boat' => 2,
   #           'submarine' => 3,
@@ -15,8 +16,9 @@ class BattleShip
     @size = size
   end
 
-  def place board
+  def place board, location
     board.placed_ships << self
+    @location = location
   end
 
   def self.boat

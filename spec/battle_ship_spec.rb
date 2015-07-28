@@ -6,8 +6,14 @@ describe BattleShip do
 
   it 'battleship was added to placed_ships' do
     ship = BattleShip.boat
-    ship.place board
+    ship.place board, 'A5'
     expect(board.placed_ships).to include(ship)
+  end
+
+  it 'battleship gets location after placement' do
+    ship = BattleShip.boat
+    ship.place board, 'A5'
+    expect(ship.location).to eq 'A5'
   end
 
   describe '#ship_size' do
