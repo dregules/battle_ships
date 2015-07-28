@@ -18,12 +18,12 @@ describe BattleShip do
     expect(board.placed_ships).to include(subject)
   end
 
-  it 'Ship type is a String' do
-
-    expect(ship_type).to be_a(String)
-    # raise_error('Wrong type of ship')
-    # expect(.SHIPS).to include(ship_type)
-  end
+  # it 'Ship type is a String' do
+  #
+  #   expect(ship_type).to be_a(String)
+  #   # raise_error('Wrong type of ship')
+  #   # expect(.SHIPS).to include(ship_type)
+  # end
 
   describe '#ship_size' do
     it 'determine <boat> length' do
