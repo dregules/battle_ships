@@ -4,16 +4,24 @@ describe BattleShip do
 
   let(:board) { double('board', placed_ships: [])}
 
-  it 'battleship was added to placed_ships' do
-    ship = BattleShip.boat
-    ship.place board, 'A5'
-    expect(board.placed_ships).to include(ship)
-  end
+  describe '#place' do
+    it 'battleship was added to placed_ships' do
+      ship = BattleShip.boat
+      ship.place board, 'A5', 'vertical'
+      expect(board.placed_ships).to include(ship)
+    end
 
-  it 'battleship gets location after placement' do
-    ship = BattleShip.boat
-    ship.place board, 'A5'
-    expect(ship.location).to eq 'A5'
+    it 'battleship gets location after placement' do
+      ship = BattleShip.boat
+      ship.place board, 'A5', 'vertical'
+      expect(ship.location).to eq 'A5'
+    end
+
+    it 'gets orientation after placement' do
+      ship = BattleShip.boat
+      ship.place board, 'A5', 'vertical'
+      expect(ship.orientation).to eq 'vertical'
+    end
   end
 
   describe '#ship_size' do
