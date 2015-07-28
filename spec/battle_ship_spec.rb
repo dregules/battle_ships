@@ -1,19 +1,28 @@
 require 'battle_ship'
 
 describe BattleShip do
+  subject do
+    BattleShip.new(ship_type)
+  end
   let(:board) { double('board', placed_ships: [])}
+  let(:ship_type) {'boat'}
+  let (:wrong_ship_type) {'mother'}
 
   it 'responds to place' do
-    expect(subject.place).to respond_to(:place).with(1).argument
+    expect(subject).to respond_to(:place).with(1).argument
   end
 
   it 'battleship was added to placed_ships' do
+    # subject 'boat'
     subject.place board
     expect(board.placed_ships).to include(subject)
   end
 
-  it 'starts with a type' do
-    expect((BattleShip.new 'boat').SHIPS).to include('boat')
+  it 'Ship type is a String' do
+
+    expect(ship_type).to be_a(String)
+    # raise_error('Wrong type of ship')
+    # expect(.SHIPS).to include(ship_type)
   end
 
   describe '#ship_size' do
